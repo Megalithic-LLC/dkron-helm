@@ -1,0 +1,8 @@
+apiVersion: v2
+name: dkron
+version: 0.1.0
+appVersion: 3.1.6
+description: Dkron and Dkron Pro Chart
+keywords: ["dkron", "infrastructure", "scheduling"]
+sources:
+  - https://github.com/Megalithic-LLC/dkron-helm
