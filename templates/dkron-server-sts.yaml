@@ -149,7 +149,7 @@ spec:
             trap _term SIGTERM
             /opt/local/dkron/dkron agent \
               --server \
-              --kubernetes \
+              --serf-reconnect-timeout 5s \
               ${BOOTSTRAP_EXPECT} \
               ${JOIN_LAN} &
 
