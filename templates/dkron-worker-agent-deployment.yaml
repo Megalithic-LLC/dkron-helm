@@ -6,6 +6,7 @@ metadata:
     app: dkron-worker
     component: worker
   name: dkron-worker
+  namespace: {{.Values.namespace}}
 spec:
   replicas: 2
   selector:

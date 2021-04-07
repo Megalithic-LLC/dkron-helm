@@ -1,2 +1,3 @@
 initialClusterSize: 3
+namespace: default
 statefulSetName: dkron-server
