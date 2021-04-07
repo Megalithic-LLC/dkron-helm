@@ -87,6 +87,8 @@ spec:
           - "-c"
           - |
             set -o pipefail
+            
+            apk add jq
 
             _term() {
                echo "Caught SIGTERM"
