@@ -5,6 +5,7 @@
 - [#1](https://github.com/Megalithic-LLC/dkron-helm/issues/1) Bundle `jq` so that automation works with standard Dkron and Dkron Pro images
 
 ### Changed
+- [#7](https://github.com/Megalithic-LLC/dkron-helm/issues/7) Replace env var based configuration with a Helm values file
 - [#5](https://github.com/Megalithic-LLC/dkron-helm/issues/5) Replace use of custom `--kubernetes` flag that requires a customized build with the standard `--raft-reconnect-timeout` flag
 
 ### Fixed
