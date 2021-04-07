@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: dkron-server
+  namespace: {{.Values.namespace}}
   labels:
     app: dkron-server
     component: server
@@ -74,10 +75,6 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: status.podIP
-        - name: STATEFULSET_NAMESPACE
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
         command:
           - "/bin/sh"
           - "-c"
@@ -101,7 +98,7 @@ spec:
               POD_IP=$(hostname -i)
             fi
 
-            FQDN_SUFFIX="{{.Values.statefulSetName}}.${STATEFULSET_NAMESPACE}.svc.cluster.local"
+            FQDN_SUFFIX="{{.Values.statefulSetName}}.{{.Values.namespace}}.svc.cluster.local"
             NODE_NAME="$(hostname -s).${FQDN_SUFFIX}"
 
             JOIN_PEERS=""

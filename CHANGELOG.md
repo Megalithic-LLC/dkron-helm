@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 ### Added
+- [#10](https://github.com/Megalithic-LLC/dkron-helm/issues/10) Support installation into a custom namespace
 - [#1](https://github.com/Megalithic-LLC/dkron-helm/issues/1) Bundle `jq` so that automation works with standard Dkron and Dkron Pro images
 
 ### Changed
