@@ -23,7 +23,7 @@ spec:
         component: server
     spec:
       terminationGracePeriodSeconds: 300
-      serviceAccount: dkron-server
+      serviceAccount: dkron
       securityContext:
         runAsUser: 0 # TODO. Running as root is a bad idea
       containers:
