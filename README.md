@@ -43,15 +43,20 @@ There is a labelupdater sidecar container that is checking self dkron if it's le
 
 ### Configuration
 
-#### Environment variables
+#### Helm values
 
- * INITIAL_CLUSTER_SIZE  
+ * `initialClusterSize`
    Set the number same as replicas values in StatefulSet.  
    This is required for proper bootstrapping
-
- * STATEFULSET_NAME  
+ * `statefulSetName`
    Set this same as your statefulset name.  
    This is required for proper FQDN build
+
+Example:
+
+```sh
+$ helm install dkron . -f values.yaml --set initialClusterSize=5
+```
 
 #### Service account and worker agent discovery
 

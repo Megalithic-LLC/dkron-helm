@@ -10,7 +10,7 @@ spec:
   updateStrategy:
     type: OnDelete # During rolling upgrade kuberenetes don't know who's leader and restarting pods in an order. That may cause multiple failovers. Maybe it's better to check who's leader and manually restart followers, then leader, to have a single failover.
   serviceName: dkron-server
-  replicas: 3
+  replicas: {{.Values.initialClusterSize}}
   selector:
     matchLabels:
       app: dkron-server
@@ -70,14 +70,10 @@ spec:
         - name: raft
           containerPort: 6868
         env:
-        - name: INITIAL_CLUSTER_SIZE
-          value: "3"
         - name: POD_IP
           valueFrom:
             fieldRef:
               fieldPath: status.podIP
-        - name: STATEFULSET_NAME
-          value: dkron-server
         - name: STATEFULSET_NAMESPACE
           valueFrom:
             fieldRef:
@@ -105,11 +101,11 @@ spec:
               POD_IP=$(hostname -i)
             fi
 
-            FQDN_SUFFIX="${STATEFULSET_NAME}.${STATEFULSET_NAMESPACE}.svc.cluster.local"
+            FQDN_SUFFIX="{{.Values.statefulSetName}}.${STATEFULSET_NAMESPACE}.svc.cluster.local"
             NODE_NAME="$(hostname -s).${FQDN_SUFFIX}"
 
             JOIN_PEERS=""
-            for i in $( seq 0 $((${INITIAL_CLUSTER_SIZE} - 1)) ); do
+            for i in $( seq 0 $(({{.Values.initialClusterSize}} - 1)) ); do
               JOIN_PEERS="${JOIN_PEERS}${JOIN_PEERS:+ }${STATEFULSET_NAME}-${i}.${FQDN_SUFFIX}"
             done
 
