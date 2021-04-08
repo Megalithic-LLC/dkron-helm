@@ -1,6 +1,6 @@
 # Helm Chart for Dkron and Dkron Pro
 
-A Helm chart based on the work done by [Andrey Golev](https://github.com/andreygolev) in [distribworks/dkron!704](https://github.com/distribworks/dkron/pull/704).
+A Helm chart based on the work done by [Andrey Golev](https://github.com/andreygolev) in [distribworks/dkron#704](https://github.com/distribworks/dkron/pull/704).
 
 ## A Dkron HA solution for running in Kubernetes
 
