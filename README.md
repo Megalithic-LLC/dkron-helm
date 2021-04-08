@@ -39,14 +39,16 @@ $ helm install dkron . -f values.yaml
 
 #### Helm values
 
-* `image` : Specify a custom Dkron image
-* 
-* `initialClusterSize`
-   Set the number same as replicas values in StatefulSet.  
-   This is required for proper bootstrapping
-* `statefulSetName`
-   Set this same as your statefulset name.  
-   This is required for proper FQDN build
+* `image` :
+   Specify a custom Dkron image.
+* `imagePullSecrets` :
+   Specify a list of pull secrets used to access a private registry.
+* `initialClusterSize` :
+   Set the number of replicasin StatefulSet.
+   This is required for proper bootstrapping.
+* `statefulSetName` :
+   Sets the statefulset name.
+   This is required for proper FQDN build.
 
 Example:
 
