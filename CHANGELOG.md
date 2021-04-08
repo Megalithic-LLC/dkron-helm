@@ -1,5 +1,9 @@
 # Dkron Helm Chart Changelog
 
+## [Unreleased]
+### Changed
+- [#14](https://github.com/Megalithic-LLC/dkron-helm/issues/14) Lint merge requests
+
 ## [0.1.0] - 2021-04-08
 ### Added
 - [#10](https://github.com/Megalithic-LLC/dkron-helm/issues/10) Support installation into a custom namespace
