@@ -1,3 +1,5 @@
+image: dkron/dkron
+imagePullSecrets: []
 #imagePullSecrets:
 #  - name: my-pull-secret
 initialClusterSize: 3
