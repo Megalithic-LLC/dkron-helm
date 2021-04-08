@@ -4,6 +4,56 @@ A Helm chart based on the work done by [Andrey Golev](https://github.com/andreyg
 
 ## A Dkron HA solution for running in Kubernetes
 
+### Usage
+
+#### Install Dkron
+
+```sh
+$ helm install dkron . -f values.yaml
+```
+
+#### Install Dkron Pro
+
+```sh
+$ kubectl create secret docker-registry my-pull-secret \
+	--docker-server=registry.gitlab.com \
+	--docker-username=REDACTED \
+	--docker-password=REDACTED
+secret/my-pull-secret created
+```
+
+```sh
+$ vi values.yaml
+...
+image: registry.gitlab.com/distribworks/dkron-pro:latest
+imagePullSecrets:
+  - name: my-pull-secret
+...
+```
+
+```sh
+$ helm install dkron . -f values.yaml
+```
+
+### Configuration
+
+#### Helm values
+
+* `image` : Specify a custom Dkron image
+* 
+* `initialClusterSize`
+   Set the number same as replicas values in StatefulSet.  
+   This is required for proper bootstrapping
+* `statefulSetName`
+   Set this same as your statefulset name.  
+   This is required for proper FQDN build
+
+Example:
+
+```sh
+$ helm install dkron . -f values.yaml --set initialClusterSize=5
+```
+
 ### Overview
 
 #### Bootstrap process
@@ -40,23 +90,6 @@ This is a service pointing to a cluster leader. That is required for checking if
 #### Label updater
 
 There is a labelupdater sidecar container that is checking self dkron if it's leader or follower, and updating self pod label according to current role.
-
-### Configuration
-
-#### Helm values
-
- * `initialClusterSize`
-   Set the number same as replicas values in StatefulSet.  
-   This is required for proper bootstrapping
- * `statefulSetName`
-   Set this same as your statefulset name.  
-   This is required for proper FQDN build
-
-Example:
-
-```sh
-$ helm install dkron . -f values.yaml --set initialClusterSize=5
-```
 
 #### Service account and worker agent discovery
 
