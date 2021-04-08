@@ -103,7 +103,7 @@ spec:
 
             JOIN_PEERS=""
             for i in $( seq 0 $(({{.Values.initialClusterSize}} - 1)) ); do
-              JOIN_PEERS="${JOIN_PEERS}${JOIN_PEERS:+ }${STATEFULSET_NAME}-${i}.${FQDN_SUFFIX}"
+              JOIN_PEERS="${JOIN_PEERS}${JOIN_PEERS:+ }{{.Values.statefulSetName}}-${i}.${FQDN_SUFFIX}"
             done
 
             # Require multiple loops in the case of unstable DNS resolution
