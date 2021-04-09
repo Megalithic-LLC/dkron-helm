@@ -1,6 +1,9 @@
 # Dkron Helm Chart Changelog
 
 ## [Unreleased]
+### Added
+- [#19](https://github.com/Megalithic-LLC/dkron-helm/issues/19) Parameterize initial number of workers
+
 ### Changed
 - [#14](https://github.com/Megalithic-LLC/dkron-helm/issues/14) Lint merge requests
 

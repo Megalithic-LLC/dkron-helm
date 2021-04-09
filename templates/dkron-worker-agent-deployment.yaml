@@ -8,7 +8,7 @@ metadata:
   name: dkron-worker
   namespace: {{.Values.namespace}}
 spec:
-  replicas: 2
+  replicas: {{.Values.initialWorkers}}
   selector:
     matchLabels:
       app: dkron-worker

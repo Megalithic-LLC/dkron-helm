@@ -3,5 +3,6 @@ imagePullSecrets: []
 #imagePullSecrets:
 #  - name: my-pull-secret
 initialClusterSize: 3
+initialWorkers: 2
 namespace: default
 statefulSetName: dkron-server
