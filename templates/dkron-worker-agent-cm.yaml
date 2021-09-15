@@ -6,7 +6,7 @@ metadata:
 data:
   dkron.yml: |-
     kubernetes: true
-    retry-join: ["provider=k8s label_selector=\"app=dkron-server\""]
+    retry-join: ["provider=k8s namespace={{.Values.namespace}} label_selector=\"app={{.Values.statefulSetName}}\""]
     # Uncomment below to set a tag for a worker
     tags:
       worker: cron
