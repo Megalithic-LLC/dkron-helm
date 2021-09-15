@@ -1,7 +1,7 @@
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: dkron
+  name: dkron-server
   namespace: {{.Values.namespace}}
   labels:
     app: dkron
